@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-const labelTextStyle = TextStyle(fontSize: 18.0, color: Color(0XFF8D8398));
+const labelTextStyle = TextStyle(fontSize: 18.0);
 
 class IconContent extends StatelessWidget {
-  IconContent({required this.icon, required this.gender});
+  IconContent({required this.gender, required this.gendertext});
 
-  final IconData icon;
-  final String gender;
+  final IconData gender;
+  final String gendertext;
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +14,16 @@ class IconContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Icon(
-          icon,
+          gender,
           size: 80.0,
         ),
         SizedBox(
           height: 15.0,
         ),
-        Text(gender, style: labelTextStyle),
+        Text(
+          gendertext,
+          style: labelTextStyle,
+        ),
       ],
     );
   }

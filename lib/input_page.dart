@@ -25,10 +25,22 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(children: <Widget>[
               Expanded(
-                child: ReuseableCard(colour: ContainerColor),
+                child: ReuseableCard(
+                  colour: ContainerColor,
+                  cardChild: IconContent(
+                    gender: FontAwesomeIcons.mars,
+                    gendertext: 'MALE',
+                  ),
+                ),
               ),
               Expanded(
-                child: ReuseableCard(colour: ContainerColor),
+                child: ReuseableCard(
+                  colour: ContainerColor,
+                  cardChild: IconContent(
+                    gender: FontAwesomeIcons.venus,
+                    gendertext: 'FEMALE',
+                  ),
+                ),
               )
             ]),
           ),
@@ -51,21 +63,6 @@ class _InputPageState extends State<InputPage> {
             height: BottomContainerHeight,
           )
         ],
-      ),
-    );
-  }
-}
-
-class ReuseableCard extends StatelessWidget {
-  ReuseableCard({required this.colour});
-  final Color colour;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: colour,
       ),
     );
   }
