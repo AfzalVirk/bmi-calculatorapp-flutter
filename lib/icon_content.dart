@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-const labelTextStyle = TextStyle(fontSize: 18.0);
+import 'constants.dart';
 
 class IconContent extends StatelessWidget {
   IconContent({required this.gender, required this.gendertext});
