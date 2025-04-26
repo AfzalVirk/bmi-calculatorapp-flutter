@@ -42,6 +42,7 @@ class _InputPageState extends State<InputPage> {
         centerTitle: true,
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Expanded(
             child: Row(children: <Widget>[
@@ -53,8 +54,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: genderselected == Gender.male
-                      ? activecolor
-                      : inactivecolor,
+                      ? kActivecolor
+                      : kInactivecolor,
                   cardChild: IconContent(
                     gender: FontAwesomeIcons.mars,
                     gendertext: 'MALE',
@@ -69,8 +70,8 @@ class _InputPageState extends State<InputPage> {
                     });
                   },
                   colour: genderselected == Gender.female
-                      ? activecolor
-                      : inactivecolor,
+                      ? kActivecolor
+                      : kInactivecolor,
                   cardChild: IconContent(
                     gender: FontAwesomeIcons.venus,
                     gendertext: 'FEMALE',
@@ -81,24 +82,45 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReuseableCard(
-              colour: activecolor,
-              cardChild: Text('HEIGHT'),
+              colour: kActivecolor,
+              cardChild: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'HEIGHT',
+                    style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '180',
+                        style: kNumberTextStyle,
+                      ),
+                      Text(
+                        'cm',
+                        style: kLabelTextStyle,
+                      )
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
               child: Row(
             children: <Widget>[
-              Expanded(child: ReuseableCard(colour: activecolor)),
+              Expanded(child: ReuseableCard(colour: kActivecolor)),
               Expanded(
-                child: ReuseableCard(colour: activecolor),
+                child: ReuseableCard(colour: kActivecolor),
               ),
             ],
           )),
           Container(
-            color: BottomContainerColor,
+            color: kBottomContainerColor,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: BottomContainerHeight,
+            height: kBottomContainerHeight,
           )
         ],
       ),
