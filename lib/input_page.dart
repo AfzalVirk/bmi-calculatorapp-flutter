@@ -1,3 +1,4 @@
+import 'package:bmi_calculator_flutter/results_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
@@ -41,7 +42,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
         centerTitle: true,
       ),
       body: Column(
@@ -89,7 +90,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'HEIGHT     ',
                     style: kLabelTextStyle,
                   ),
@@ -102,7 +103,7 @@ class _InputPageState extends State<InputPage> {
                         height.toString(),
                         style: kNumberTextStyle,
                       ),
-                      Text(
+                      const Text(
                         'cm',
                         style: kLabelTextStyle,
                       )
@@ -110,14 +111,14 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                        thumbColor: Color(0xFFE2232F),
-                        inactiveTrackColor: Color(0XFFD4EBF8),
-                        activeTrackColor: Color(0xFFE2232F),
-                        overlayColor: Color(0x30E2232F),
-                        thumbShape:
-                            RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                        thumbColor: const Color(0xFFE2232F),
+                        inactiveTrackColor: const Color(0XFFD4EBF8),
+                        activeTrackColor: const Color(0xFFE2232F),
+                        overlayColor: const Color(0x30E2232F),
+                        thumbShape: const RoundSliderThumbShape(
+                            enabledThumbRadius: 15.0),
                         overlayShape:
-                            RoundSliderOverlayShape(overlayRadius: 25.0)),
+                            const RoundSliderOverlayShape(overlayRadius: 25.0)),
                     child: Slider(
                       value: height.toDouble(),
                       min: 120.0,
@@ -142,7 +143,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'WEIGHT',
                         style: kLabelTextStyle,
                       ),
@@ -161,7 +162,7 @@ class _InputPageState extends State<InputPage> {
                               });
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10.0,
                           ),
                           RoundIconButton(
@@ -184,7 +185,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'AGE',
                         style: kLabelTextStyle,
                       ),
@@ -203,7 +204,7 @@ class _InputPageState extends State<InputPage> {
                               });
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10.0,
                           ),
                           RoundIconButton(
@@ -222,11 +223,19 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ResultsPage();
+              }));
+            },
+            child: Container(
+              color: kBottomContainerColor,
+              margin: const EdgeInsets.only(top: 10.0),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: const Text('Calculate'),
+            ),
           )
         ],
       ),
@@ -244,12 +253,12 @@ class RoundIconButton extends StatelessWidget {
       child: Icon(icon),
       onPressed: onPress,
       elevation: 0.0,
-      constraints: BoxConstraints.tightFor(
+      constraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
       ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF10366F),
+      shape: const CircleBorder(),
+      fillColor: const Color(0xFF10366F),
     );
   }
 }
