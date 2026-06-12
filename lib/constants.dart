@@ -8,3 +8,6 @@ const kInactivecolor = Color(0xFF10366F);
 const kLabelTextStyle = TextStyle(fontSize: 18.0);
 
 const kNumberTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
+
+const kLargeButtonTextStyle =
+    TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold);
