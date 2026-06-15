@@ -223,24 +223,12 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           )),
-          GestureDetector(
+          BottomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const ResultsPage();
-              }));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (Context) => ResultsPage()));
             },
-            child: Container(
-              color: kBottomContainerColor,
-              margin: const EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: const Center(
-                child: Text(
-                  'CALCULATE',
-                  style: kLargeButtonTextStyle,
-                ),
-              ),
-            ),
           )
         ],
       ),
@@ -248,8 +236,34 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+class BottomButton extends StatelessWidget {
+  BottomButton({required this.onTap, required this.buttonTitle});
+
+  final VoidCallback? onTap;
+  final String buttonTitle;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        color: kBottomContainerColor,
+        margin: const EdgeInsets.only(top: 10.0),
+        padding: const EdgeInsets.only(bottom: 3.0),
+        width: double.infinity,
+        height: kBottomContainerHeight,
+        child: Center(
+          child: Text(
+            buttonTitle,
+            style: kLargeButtonTextStyle,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, @required this.onPress});
+  RoundIconButton({required this.icon, required this.onPress});
   final IconData icon;
   final VoidCallback? onPress;
   @override
