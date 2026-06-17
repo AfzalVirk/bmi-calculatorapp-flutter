@@ -8,7 +8,7 @@ class CalculatorBrain {
 
   double _bmi = 0.0;
   String CalculateBMI() {
-    double _bmi = weight / pow(height / 100, 2);
+    _bmi = weight / pow(height / 100, 2);
     return _bmi.toStringAsFixed(1);
   }
 
